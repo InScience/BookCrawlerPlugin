@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="nutch-1.8">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../Eclipse/externallibs/nutch-1.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
