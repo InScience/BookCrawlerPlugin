@@ -1,14 +1,15 @@
 package com.edgars.nutch;
 
-import com.edgars.Author;
-import com.edgars.Category;
-import com.edgars.PrintBook;
-import com.edgars.Table;
+import com.edgars.table.Author;
+import com.edgars.table.Category;
+import com.edgars.table.PrintBook;
+import com.edgars.table.Table;
 import com.jaunt.Element;
 import com.jaunt.Elements;
 import com.jaunt.NotFound;
 import com.jaunt.ResponseException;
 import com.jaunt.UserAgent;
+import json.JSONObject;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.Text;
 import org.apache.nutch.crawl.CrawlDatum;
@@ -17,7 +18,6 @@ import org.apache.nutch.indexer.IndexingException;
 import org.apache.nutch.indexer.IndexingFilter;
 import org.apache.nutch.indexer.NutchDocument;
 import org.apache.nutch.parse.Parse;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -394,7 +394,15 @@ public class Parser implements IndexingFilter {
                                      * Splitting author by name (0) and surname (1).
                                      */
                                     String[] a = author.split(" ");
-                                    printBook = new Author(printBook, a[0], a[1]);
+                                    String name = "";
+                                    String surname = "";
+                                    if (a.length < 2) {
+                                        name = a[0];
+                                    } else {
+                                        name = a[0];
+                                        surname = a[1];
+                                    }
+                                    printBook = new Author(printBook, name, surname);
                                 }
                             } else {
                                 printBook = new Author(printBook);

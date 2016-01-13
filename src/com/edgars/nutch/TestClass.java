@@ -1,15 +1,17 @@
 package com.edgars.nutch;
 
-import com.edgars.Author;
-import com.edgars.Category;
-import com.edgars.PrintBook;
-import com.edgars.Table;
+
+import com.edgars.table.Author;
+import com.edgars.table.Category;
+import com.edgars.table.PrintBook;
+import com.edgars.table.Table;
 import com.jaunt.Element;
 import com.jaunt.Elements;
 import com.jaunt.NotFound;
 import com.jaunt.ResponseException;
 import com.jaunt.UserAgent;
-import org.json.JSONObject;
+import json.JSONObject;
+
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -93,7 +95,7 @@ public class TestClass {
          */
         Table printBook = null;
 
-        String link = "http://www.manoknyga.lt/knyga/visuotine-lietuviu-enciklopedija-i-tomas-a-ar.html";
+        String link = "http://www.manoknyga.lt/eknyga/filosofijos-istorijos-etiudai.html";
         json.put("url", link);
         //LOG.info("Parsing link " + link);
         System.out.println("Parsing link " + link);
@@ -292,12 +294,12 @@ public class TestClass {
 
                             }
                             json.put("img", img);
-
-                            try {
+// UNCOMMENT
+                            /*try {
                                 printBook = new PrintBook(json);
                             } catch (SQLException e) {
                                 e.printStackTrace();
-                            }
+                            }*/
 
                             if (infoBooksItemInformation
                                     .findEvery("<div class=authors>")
@@ -316,7 +318,15 @@ public class TestClass {
                                      * Splitting author by name (0) and surname (1).
                                      */
                                     String[] a = author.split(" ");
-                                    printBook = new Author(printBook, a[0], a[1]);
+                                    String name = "";
+                                    String surname = "";
+                                    if (a.length < 2) {
+                                        name = a[0];
+                                    } else {
+                                        name = a[0];
+                                        surname = a[1];
+                                    }
+                                    printBook = new Author(printBook, name, surname);
                                 }
                             } else {
                                 printBook = new Author(printBook);

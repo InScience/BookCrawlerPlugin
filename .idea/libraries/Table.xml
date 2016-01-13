@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Table">
-    <CLASSES>
-      <root url="jar://$APPLICATION_HOME_DIR$/Table/out/artifacts/Table_jar/Table.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
