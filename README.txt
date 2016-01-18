@@ -14,6 +14,7 @@ Directories
 -----------
 
 %NUTCH_HOME% - directory where Nutch Crawler is installed.
+%SOLR_HOME% - parent directory of SOLR.
 
 Plug-in includes
 ----------------
@@ -106,6 +107,9 @@ Start
 -----
 
 	Check for commands in Nutch tutorial.
+	NOTE: Solr must be running to use Nutch!!!
+	    * To Start Solr, go to %SOLR_HOME%/example and in command line type "nohup java -jar start.jar > logfile 2>&1 &". This should
+	    start Solr in background.
 	
 	Last line more in details:
 		crawl <seedDir> <crawlDir> <solrURL> <numberOfRounds>
