@@ -102,6 +102,9 @@ Starting the Nutch
 	Execute start file from %NUTCH_HOME% root directory.
 	Example: ./start
 	* If getting error JAVA_HOME is not set, then type: export JAVA_HOME=/usr/
+	NOTE: after Nutch was started first time, itš possible to not execute "start" file, but just use coommand:
+	    bin/crawl urls manoknyga http://158.129.140.188:8983/solr/ 1
+	    This command will be called from Scheduler!
 		
 Start
 -----
