@@ -429,6 +429,8 @@ public class Parser implements IndexingFilter {
                                             .getText();
                                     printBook = new Category(printBook, category);
                                 }
+                            } else {
+                                printBook = new Category(printBook);
                             }
                         }
                     }

@@ -3,7 +3,6 @@ package com.edgars.nutch;
 
 import com.edgars.table.Author;
 import com.edgars.table.Category;
-import com.edgars.table.PrintBook;
 import com.edgars.table.Table;
 import com.jaunt.Element;
 import com.jaunt.Elements;
@@ -11,7 +10,6 @@ import com.jaunt.NotFound;
 import com.jaunt.ResponseException;
 import com.jaunt.UserAgent;
 import json.JSONObject;
-
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -95,7 +93,7 @@ public class TestClass {
          */
         Table printBook = null;
 
-        String link = "http://www.manoknyga.lt/eknyga/filosofijos-istorijos-etiudai.html";
+        String link = "https://www.manoknyga.lt/knyga/karaliene-barbora.html";
         json.put("url", link);
         //LOG.info("Parsing link " + link);
         System.out.println("Parsing link " + link);
@@ -336,7 +334,6 @@ public class TestClass {
                                     .findEvery(
                                             "<div class=main_categories_navigation>")
                                     .size() > 0) {
-
                                 // Getting categories.
                                 Element mainCategoriesNavigation = infoBooksItem
                                         .findFirst("<div class=main_categories_navigation>");
@@ -353,6 +350,8 @@ public class TestClass {
                                             .getText();
                                     printBook = new Category(printBook, category);
                                 }
+                            } else {
+                                printBook = new Category(printBook);
                             }
                         }
                     }
