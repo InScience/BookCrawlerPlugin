@@ -174,7 +174,6 @@ public class Parser implements IndexingFilter {
         String link = url.toString();
         json.put("url", link);
         LOG.info("Parsing link " + link);
-        System.out.println("Parsing link " + link);
 
         /**
          * Creating Jaunt UserAgent which will visit urls.
@@ -449,7 +448,6 @@ public class Parser implements IndexingFilter {
                 /**
                  * This means that link does not have a book. There is no <i>div class=info_books_item</i> tag.
                  */
-                System.out.println("<div class=info_books_item> is null");
             }
 
         } catch (ResponseException | NotFound e) {
