@@ -19,12 +19,11 @@ Directories
 Plug-in includes
 ----------------
 
-	client.jar
 	index-njp.jar
 	jaunt1.1.1.jar
 	plugin.xml
 	start
-	table.jar
+	CommonTools.jar
 	README.txt
 
 	NOTE: while server is not configured to find Apache Phoenix library(phoenix-4.6.0-HBase-0.98-client.jar), it must be included into dependencies!!!
@@ -32,13 +31,12 @@ Plug-in includes
 Description
 -----------
 
-	* client.jar - Java archive contains classes to work with database. 
 	* index-njp.jar - this is a main Java archive. It contains Parser class with filter method 
 		which is invoked by Nutch Crawler.
 	* jaunt1.1.1.jar - Java archive contains web page scrapper.
 	* plugin.xml - configuration file of plug-in.
 	* start - file which invokes Nutch Crawler. Place it into %NUTCH_HOME% directory.
-	* table.jar - Java archive contains classes to work with (in this case) authors, categories and books.
+	* CommonTools.jar - includes Algorithm, HBaseSQLManager, Table and Scheduler classes.
 	
 	*** phoenix-4.6.0-HBase-0.98-client.jar - added while server is not configured to find phoenix library on cluster. 
 	*** Remove <library name="phoenix-4.6.0-HBase-0.98-client.jar"/> when server will be configured!!!
@@ -49,7 +47,7 @@ Installation
 	* Copy plug-in files to $NUTCH_HOME%/plugins.
 	* Copy "start" file to $NUTCH_HOME% root directory.
 	* Check plug-in configuration.
-	* Configure Nutch.
+	* Configure Nutch. Nutch conf files are available at project's conf folder.
 	
 WARNING!
 -------
@@ -68,8 +66,7 @@ Plug-in configuration
 			<export name="*"/>
 		</library>
 		<library name="jaunt1.1.1.jar"/>
-		<library name="table.jar"/>
-		<library name="client.jar"/>
+		<library name="CommonTools.jar"/>
 	Temporary <library name="phoenix-4.6.0-HBase-0.98-client.jar"/> . Remove when server will be configured!!!
 
 	* In case if Jaunt library is re-downloaded, change:
@@ -128,6 +125,8 @@ Start
 
 Build
 -----
+
+	* We are using Nutch 1.8 and Solr 4.2.1
 
 	Project build on:
 	* IntelliJ IDEA 14.1.5

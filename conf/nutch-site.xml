@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+	<property>
+     		<name>http.robots.agents</name>
+     		<value>nutch-spider-2.2.1.*</value>
+	</property>
+
+	<property>
+		<name>http.agent.name</name>
+		<value>My Nutch Spider</value>
+	</property>	
+	
+	<property>
+		<name>plugin.includes</name>
+		<value>indexer-solr|urlfilter-regex|nutch-extensionpoints|protocol-(http|tika|httpclient)|parse-(text|html)|index-(basic|email|njp)|query-(basic|site|url)</value>
+		<description></description>
+	</property>
+
+
+
+	<!--<property>
+		<name>njp.custom.conf</name>
+	  	<value>njp-config.xml</value>
+	  	<description>
+	  		Configuration file of the xml/html parser/indexing filter. 
+	  		Definition of the xpath - field mappings.
+	  	</description>
+	</property>-->
+	
+</configuration>
