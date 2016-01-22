@@ -1,5 +1,7 @@
 This README file describes steps to set-up plug-in and configure Nutch to use it.
 
+We are using Nutch 1.8 and Solr 4.2.1
+
 Documentation
 -------------------
 
@@ -20,7 +22,7 @@ Plug-in includes
 ----------------
 
 	index-njp.jar
-	jaunt1.1.1.jar
+	jaunt1.1.2.jar - name changes depending on jaunt version.
 	plugin.xml
 	start
 	CommonTools.jar
@@ -33,7 +35,7 @@ Description
 
 	* index-njp.jar - this is a main Java archive. It contains Parser class with filter method 
 		which is invoked by Nutch Crawler.
-	* jaunt1.1.1.jar - Java archive contains web page scrapper.
+	* jaunt1.1.2.jar - Java archive contains web page scrapper.
 	* plugin.xml - configuration file of plug-in.
 	* start - file which invokes Nutch Crawler. Place it into %NUTCH_HOME% directory.
 	* CommonTools.jar - includes Algorithm, HBaseSQLManager, Table and Scheduler classes.
@@ -65,7 +67,7 @@ Plug-in configuration
 		<library name="index-njp.jar">
 			<export name="*"/>
 		</library>
-		<library name="jaunt1.1.1.jar"/>
+		<library name="jaunt1.1.2.jar"/>
 		<library name="CommonTools.jar"/>
 	Temporary <library name="phoenix-4.6.0-HBase-0.98-client.jar"/> . Remove when server will be configured!!!
 
@@ -99,7 +101,7 @@ Starting the Nutch
 	Execute start file from %NUTCH_HOME% root directory.
 	Example: ./start
 	* If getting error JAVA_HOME is not set, then type: export JAVA_HOME=/usr/
-	NOTE: after Nutch was started first time, itš possible to not execute "start" file, but just use coommand:
+	NOTE: after Nutch was started first time, it's possible to not execute "start" file, but just use command:
 	    bin/crawl urls manoknyga http://158.129.140.188:8983/solr/ 1
 	    This command will be called from Scheduler!
 		
@@ -125,8 +127,6 @@ Start
 
 Build
 -----
-
-	* We are using Nutch 1.8 and Solr 4.2.1
 
 	Project build on:
 	* IntelliJ IDEA 14.1.5
